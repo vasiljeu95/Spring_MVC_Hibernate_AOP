@@ -3,6 +3,9 @@ package com.vasilyeu.spring.mvc_hibernate_aop.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
 /**
  * employee
@@ -21,12 +24,17 @@ public class Employee {
     private Long id;
 
     @Column(name = "name")
+    @Size(min = 2, message = "name must be min. 2 symbols")
     private String name;
     @Column(name = "surname")
+    @Size(min = 2, message = "name must be min. 2 symbols")
     private String surName;
     @Column(name = "department")
+    @Size(min = 2, message = "name must be min. 2 symbols")
     private String department;
     @Column(name = "salary")
+    @Min(value = 500, message = "must be greater than 499")
+    @Max(value = 1000, message = "must be less than 1001")
     private int salary;
 
     public Employee() {
