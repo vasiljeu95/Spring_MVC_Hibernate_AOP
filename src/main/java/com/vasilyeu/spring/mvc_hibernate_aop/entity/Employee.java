@@ -21,7 +21,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private int id;
 
     @Column(name = "name")
     @Size(min = 2, message = "name must be min. 2 symbols")
@@ -40,7 +40,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(Long id, String name, String surName, String department, int salary) {
+    public Employee(int id, String name, String surName, String department, int salary) {
         this.id = id;
         this.name = name;
         this.surName = surName;
